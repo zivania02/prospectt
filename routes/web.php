@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\AddprospectController;
+use App\Http\Controllers\SalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +66,7 @@ Route::get('pdf', [PresensiController::class, 'pdf'])->name('pdf');
 Route::get('expdf', [AddprospectController::class, 'expdf'])->name('expdf');
 
 
-// middleware 
+// middleware
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     // add prospect
     Route::get('/tambahprospect', [AddprospectController::class, 'tambahprospect'])->name('tambahprospect');
@@ -76,3 +77,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     // delete rospectp
     Route::get('/delete/{id}', [AddprospectController::class, 'delete'])->name('delete');
 });
+
+
+// sales
+Route::get('/sales', [SalesController::class, 'sales'])->name('sales');
