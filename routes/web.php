@@ -81,3 +81,9 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
 // sales
 Route::get('/sales', [SalesController::class, 'sales'])->name('sales');
+Route::get('/tambahsales', [SalesController::class, 'tambahsales'])->name('tambahsales');
+Route::post('/insertdata', [SalesController::class, 'insertdata'])->name('insertdata');
+Route::get('/tampilsales/{id}', [SalesController::class, 'tampilsales'])->name('tampilsales');
+Route::get('/deletesales/{id}', [SalesController::class, 'delete'])->name('deletesales');
+Route::get('/detail/{id}', [SalesController::class, 'detail'])->name('detail');
+
