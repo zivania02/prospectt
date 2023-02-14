@@ -32,11 +32,6 @@ Route::put('/update/{id}', [ProfileController::class, 'update'])->name('update')
 Route::put('/updateimg/{id}', [ProfileController::class, '
 updateImg'])->name('update.img');
 
-// settings page
-Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
-Route::get('/menu', [ProfileController::class, 'menu'])->name('menu');
-Route::get('/roles', [ProfileController::class, 'roles'])->name('roles');
-
 // Route::get('/prospect', [AddprospectController::class, 'index'])->name('prospect')->middleware('auth');
 // // add prospect
 // Route::get('/tambahprospect', [AddprospectController::class, 'tambahprospect'])->name('tambahprospect');
@@ -79,6 +74,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 });
 
 
+//menu
+Route::get('/menu', [ProfileController::class, 'menu'])->name('menu');
+Route::get('/roles', [ProfileController::class, 'roles'])->name('roles');
+Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
+
 // sales
 Route::get('/sales', [SalesController::class, 'sales'])->name('sales');
 Route::get('/tambahsales', [SalesController::class, 'tambahsales'])->name('tambahsales');
@@ -86,4 +86,15 @@ Route::post('/insertdata', [SalesController::class, 'insertdata'])->name('insert
 Route::get('/tampilsales/{id}', [SalesController::class, 'tampilsales'])->name('tampilsales');
 Route::get('/deletesales/{id}', [SalesController::class, 'delete'])->name('deletesales');
 Route::get('/detail/{id}', [SalesController::class, 'detail'])->name('detail');
+
+
+
+
+// settings page
+Route::get('/tambahset', [ProfileController::class, 'settings'])->name('settings');
+Route::post('/insertset', [ProfileController::class, 'insertset'])->name('insertset');
+
+// Route::get('/tampilpros/{id}', [AddprospectController::class, 'tampilpros'])->name('tampilpros');
+// Route::post('/updatepros/{id}', [AddprospectController::class, 'updatepros'])->name('updatepros');
+// Route::get('/delete/{id}', [AddprospectController::class, 'delete'])->name('delete');
 

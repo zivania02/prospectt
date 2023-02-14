@@ -31,7 +31,7 @@
                                         @method('put')
 
                                         <div class="image mt-5 mb-4"> <span>Change Photo</span>
-                                     
+
                                             <input class="btn btn-primary" type="file" class="form-control" name="image"
                                                 id="inputImage">
                                         </div>

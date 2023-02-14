@@ -3,8 +3,8 @@
 
 <div class="container">
         <!-- Title -->
-        <nav class="nav nav-borders">
-            <a class="nav-link active" href="/settings" target="__blank">Settings</a>
+     <nav class="nav nav-borders mb-3">
+       <a class="nav-link active" href="/settings" target="__blank">Configuration</a>
             <a class="nav-link" href="/roles" target="__blank">Roles</a>
             <a class="nav-link" href="/menu" target="__blank">Menu</a>
         </nav>
