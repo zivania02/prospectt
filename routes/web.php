@@ -19,7 +19,9 @@ use App\Http\Controllers\SalesController;
 */
 
 // utama
-Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/', function(){
+    return redirect()->route('login');
+});
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -77,7 +79,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 //menu
 Route::get('/menu', [ProfileController::class, 'menu'])->name('menu');
 Route::get('/roles', [ProfileController::class, 'roles'])->name('roles');
-Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
+// Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
 
 // sales
 Route::get('/sales', [SalesController::class, 'sales'])->name('sales');
@@ -91,8 +93,12 @@ Route::get('/detail/{id}', [SalesController::class, 'detail'])->name('detail');
 
 
 // settings page
+
 Route::get('/tambahset', [ProfileController::class, 'settings'])->name('settings');
 Route::post('/insertset', [ProfileController::class, 'insertset'])->name('insertset');
+Route::get('/tampilset/{id}', [ProfileController::class, 'tampilset'])->name('tampilset');
+Route::put('/updatedata/{id}', [ProfileController::class, 'updatedata'])->name('updatedata');
+
 
 // Route::get('/tampilpros/{id}', [AddprospectController::class, 'tampilpros'])->name('tampilpros');
 // Route::post('/updatepros/{id}', [AddprospectController::class, 'updatepros'])->name('updatepros');

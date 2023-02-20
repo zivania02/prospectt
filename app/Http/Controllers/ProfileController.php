@@ -22,27 +22,41 @@ class ProfileController extends Controller
   {
     return view('menu');
   }
-
-
-//crud settings
  public function settings(){
     $data=user::all();
     return view('settings',compact('data'));
  }
-
  public function tambahset(){
    return view('settings');
  }
 
-
  public function insertset(Request $request){
-    // dd($request->all());
-    User::create($request->all());
+     $req = $request->validate([
+        'name' => 'required',
+        'email' => 'required|unique:users',
+        'password' => 'required',
+        'role' => 'required',
+    ]);
+    $user = User::create($req);
     return redirect()->route('settings');
 }
 
+public function tampilset($id){
+    $data= User::find($id);
+    // dd($data);
+    return view('settings', compact('data'));
+}
+public function updatedata(Request $request, $id){
+    // dd($request);
+    User::find($id)->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => $request->password,
+        'role' => $request->role,
+    ]);
 
-
+    return redirect()->back();
+}
 
 
 

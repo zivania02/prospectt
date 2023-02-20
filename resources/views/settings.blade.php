@@ -13,8 +13,8 @@
             <!-- Basic information -->
             <div class="card">
                 <div class="card-body">
-                  <form action="/insertset" method="POST" enctype="multipart/form-data">
-                    @csrf
+                    <form action="/insertset" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
@@ -25,17 +25,15 @@
                             <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
                                 placeholder="email">
                         </div>
-                              <div class="mb-3">
+                        <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" id="exampleFormControlInput1"
                                 placeholder="password">
                         </div>
                         <h3 class="h6">Role</h3>
-                        <select class="form-select" name="role">
-                            <option value="role" selected="">Choose</option>
+                        <select name="role" class="form-select" required>
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
-
                         </select>
                         <button type="submit" class="btn btn-primary mt-4 mb-4">Submit</button>
                     </form>
@@ -59,36 +57,68 @@
 
                                 @foreach ($data as $row)
                                 <tr>
-
                                     <th scope="row">{{$no++}}</th>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->role}}</td>
-                                    <td><button type="button" class="btn btn-primary m-2"><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-trash-2">
-                                                <polyline points="3 6 5 6 21 6"></polyline>
-                                                <path
-                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                                </path>
-                                                <line x1="10" y1="11" x2="10" y2="17"></line>
-                                                <line x1="14" y1="11" x2="14" y2="17"></line>
-                                            </svg></button>
-                                        <button type="button" class="btn btn-light"><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="#0014FF" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-edit">
-                                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
-                                                </path>
-                                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
-                                                </path>
-                                            </svg></button>
+                                    <td><a href="/tampilset/{{$row->id}}" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal{{$row->id}}">Edit</a>
+                                        <button type="button" class="btn btn-light">Hapus</button>
                                     </td>
                                 </tr>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal{{$row->id}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('updatedata', $row->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1"
+                                                            class="form-label">Name</label>
+                                                        <input type="text" name="name" class="form-control"
+                                                            id="exampleFormControlInput1" placeholder="name"
+                                                            value="{{$row->name}}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1"
+                                                            class="form-label">Email</label>
+                                                        <input type="email" name="email" class="form-control"
+                                                            id="exampleFormControlInput1" placeholder="email"
+                                                            value="{{$row->email}}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1"
+                                                            class="form-label">Password</label>
+                                                        <input type="password" name="password" class="form-control"
+                                                            id="exampleFormControlInput1" placeholder="password"
+                                                            value="{{$row->password}}">
+                                                    </div>
+                                                    <h3 class="h6">Role</h3>
+                                                    <select class="form-select" name="role">
+                                                        <option selected>{{$row->role}}</option>
+                                                        <option value="admin">Admin</option>
+                                                        <option value="user">User</option>
+                                                    </select>
 
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save
+                                                            changes</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
                             </tbody>
                         </table>
@@ -98,10 +128,12 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
+
+
 <style>
     body {
         background: #eee;
