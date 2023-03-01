@@ -8,7 +8,6 @@
                      <h3 class=" mb-5 welcome-text">Edit<span class="text-black fw-bold">  Prospect</span></h3>
                    <form action="/updatepros/{{$data->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">

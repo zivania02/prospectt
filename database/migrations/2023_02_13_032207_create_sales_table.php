@@ -19,7 +19,6 @@ class CreateSalesTable extends Migration
             $table->string('nama');
             $table->string('tanggal');
             $table->timestamps();
-
         });
     }
 

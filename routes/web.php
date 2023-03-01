@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\AddprospectController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\ListSalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,19 @@ Route::get('/sales', [SalesController::class, 'sales'])->name('sales');
 Route::get('/tambahsales', [SalesController::class, 'tambahsales'])->name('tambahsales');
 Route::post('/insertdata', [SalesController::class, 'insertdata'])->name('insertdata');
 Route::get('/tampilsales/{id}', [SalesController::class, 'tampilsales'])->name('tampilsales');
+Route::get('/updatedata/{id}', [SalesController::class, 'updatedata'])->name('updatedata');
 Route::get('/deletesales/{id}', [SalesController::class, 'delete'])->name('deletesales');
-Route::get('/detail/{id}', [SalesController::class, 'detail'])->name('detail');
+
+//list sales
+Route::get('/listsales', [ListSalesController::class, 'listsales'])->name('listsales');
+Route::get('/tambahlist', [ListSalesController::class, 'tambahlist'])->name('tambahlist');
+Route::post('/insertlist', [ListSalesController::class, 'insertlist'])->name('insertlist');
+Route::get('/deletelist/{id}', [ListSalesController::class, 'delete'])->name('deletelist');
+Route::get('/tampillist/{id}', [ListSalesController::class, 'tampillist'])->name('tampillist');
+Route::post('/updatelist/{id}', [ListSalesController::class, 'updatelist'])->name('updatelist');
+Route::get('/detaillist', [ListSalesController::class, 'detaillist'])->name('detaillist');
+
+
+
+
 
