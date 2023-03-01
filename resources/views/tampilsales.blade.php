@@ -6,7 +6,7 @@
               <div class="card">
                 <div class="card-body">
                      <h3 class=" mb-5 welcome-text">Edit<span class="text-black fw-bold">  Prospect</span></h3>
-                   <form action="/updatepros/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                   <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="row">

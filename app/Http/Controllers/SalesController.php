@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SalesController extends Controller
 {
-     public function sales()
+    public function sales()
    {
       $data = Sales::all();
       return view('sales',compact('data'));
@@ -23,7 +23,7 @@ class SalesController extends Controller
       return redirect()->route('sales');
     }
 
-    public function tampilsales(Request $request, $id){
+        public function tampilsales(Request $request, $id){
       $data = Sales::find($id);
       // dd($data);
       return view('tampilsales', compact('data'));
@@ -35,13 +35,16 @@ class SalesController extends Controller
       //  return view('tampilkansales', ['data' => $data]);
     }
 
+    public function updatedata(Request $request, $id){
+      $data = Sales::find($id);
+      $data ->update($request->all());
+      return redirect()->route('sales');
+
+    }
+
     public function delete($id){
       $data = Sales::find($id);
       $data->delete();
       return redirect()->route('sales')->with('succes', 'Data berhasil Di hapus');
-    }
-
-    public function detail(Request $request){
-      return view ('detailsales');
     }
 }
