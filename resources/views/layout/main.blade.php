@@ -77,15 +77,6 @@
                             <a href={{route('edit')}} class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile
                             </a>
-                            {{-- <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i>
-                                Messages</a> --}}
-                            {{-- <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
-                                Activity</a>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
-                                FAQ</a> --}}
                             <a href="/logout" class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
                         </div>
@@ -359,7 +350,7 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="/tambahset">Configure</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/roles">role</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/roles">roles</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="/menu">menu</a></li>
 
                             </ul>
@@ -383,11 +374,11 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
-                                href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
-                            BootstrapDash.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All
-                            rights reserved.</span>
+                        {{-- <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
+                                href="https://www.bootstrapdash.com/" target="_blank">Prospect management</a>
+                            </span> --}}
+                        {{-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All
+                            rights reserved.</span> --}}
                     </div>
                 </footer>
                 <!-- partial -->

@@ -54,10 +54,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                        <div class="form-group">
-                                                    <label for="exampleSelectGender">Role</label>
-                                                    <select class="form-control" name="role" id="role">
-                                                        <option>{{auth::user()->role}}</option>
+                                                <div class="form-group">
+                                                    <select name="role" class="form-select" required>
+                                                        <option value="role">{{Auth::user()->role}}</option>
+                                                        <option value="admin">Admin</option>
+                                                        <option value="user">User</option>
+                                                        <option value="spv">SVP</option>
                                                     </select>
                                                 </div>
                                             </div>

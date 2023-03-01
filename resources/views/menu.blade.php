@@ -1,123 +1,117 @@
 @extends('layout.main')
 @section('content')
-<div class="container-fluid">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
-    <div class="container">
-        <!-- Title -->
-         <nav class="nav nav-borders mb-3">
-           <a class="nav-link active" href="/settings" target="__blank">Configuration</a>
-            <a class="nav-link" href="/roles" target="__blank">Roles</a>
-            <a class="nav-link" href="/menu" target="__blank">Menu</a>
-        </nav>
-        <h4 class="mt-4">Menu</h4>
-        <p>Please enable system alert you will get.</p>
-        <div class="list-group mb-5 shadow">
-            <div class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <strong class="mb-0">Notify me about new features and updates</strong>
-                        <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+            <h2 class="h3 mb-4 page-title">Settings</h2>
+            <div class="my-4">
+                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Security</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                            aria-controls="contact" aria-selected="false">Notifications</a>
+                    </li>
+                </ul>
+                <h5 class="mb-0 mt-5">Security Settings</h5>
+                <p>These settings are helps you keep your account secure.</p>
+                <div class="list-group mb-5 shadow">
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <strong class="mb-2">Enable Activity Logs</strong>
+                                <p class="text-muted mb-0">Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="activityLog" checked="">
+                                    <span class="custom-control-label"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-auto">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="alert3" checked="" />
-                            <span class="custom-control-label"></span>
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <strong class="mb-2">2FA Authentication</strong>
+                                <span class="badge badge-pill badge-success">Enabled</span>
+                                <p class="text-muted mb-0">Maecenas sed diam eget risus varius blandit.</p>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary btn-sm">Disable</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <strong class="mb-2">Activate Pin Code</strong>
+                                <p class="text-muted mb-0">Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="pinCode">
+                                    <span class="custom-control-label"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <strong class="mb-0">Notify me by email for latest news</strong>
-                        <p class="text-muted mb-0">Nulla et tincidunt sapien. Sed eleifend volutpat elementum.</p>
-                    </div>
-                    <div class="col-auto">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="alert4" checked="" />
-                            <span class="custom-control-label"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <strong class="mb-0">Notify me by email for latest news</strong>
-                        <p class="text-muted mb-0">Nulla et tincidunt sapien. Sed eleifend volutpat elementum.</p>
-                    </div>
-                    <div class="col-auto">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="alert4" checked="" />
-                            <span class="custom-control-label"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <strong class="mb-0">Notify me by email for latest news</strong>
-                        <p class="text-muted mb-0">Nulla et tincidunt sapien. Sed eleifend volutpat elementum.</p>
-                    </div>
-                    <div class="col-auto">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="alert4" checked="" />
-                            <span class="custom-control-label"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <strong class="mb-0">Notify me by email for latest news</strong>
-                        <p class="text-muted mb-0">Nulla et tincidunt sapien. Sed eleifend volutpat elementum.</p>
-                    </div>
-                    <div class="col-auto">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="alert4" checked="" />
-                            <span class="custom-control-label"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <strong class="mb-0">Notify me about tips on using account</strong>
-                        <p class="text-muted mb-0">Donec in quam sed urna bibendum tincidunt quis mollis mauris.</p>
-                    </div>
-                    <div class="col-auto">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="alert5" />
-                            <span class="custom-control-label"></span>
-                        </div>
-                    </div>
-                </div>
+                <h5 class="mb-0">Keterangan Waktu</h5>
+                <p>ketentuan absensi</p>
+                <table class="table border bg-white">
+                    <thead>
+                        <tr>
+                            <th>Keterangan</th>
+                            <th>Waktu </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col"><i class="fe fe-globe fe-12 text-muted mr-2"></i>Jam Masuk</th>
+                            <td>08:00 p.m</td>
+
+                            <td><a hreff="#" class="text-muted"><i class="fe fe-x"></i></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="col"><i class="fe fe-smartphone fe-12 text-muted mr-2"></i>Jam Keluar</th>
+                            <td>17:00 a.m</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="col"><i class="fe fe-globe fe-12 text-muted mr-2"></i>Ketentuan Terlambat</th>
+                            <td>12:00 p.m</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
-
-
 <style>
-    .nav-borders .nav-link.active {
-        color: #0061f2;
-        border-bottom-color: #0061f2;
+    body {
+        margin-top: 20px;
+        color: #8e9194;
+        background-color: #f4f6f9;
     }
 
-    .nav-borders .nav-link {
-        color: #69707a;
-        border-bottom-width: 0.125rem;
-        border-bottom-style: solid;
-        border-bottom-color: transparent;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 1rem;
-        margin-right: 1rem;
+    .text-muted {
+        color: #aeb0b4 !important;
+    }
+
+    .text-muted {
+        font-weight: 300;
     }
 
 </style>

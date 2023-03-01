@@ -17,23 +17,25 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                            <input type="text" name="name" placeholder="masukan name" required class="form-control" id="exampleFormControlInput1"
                                 placeholder="name">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="email">
+                          <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="email" name="email" placeholder="masukan email" required class="form-control" id="exampleFormControlInput1"
+                                placeholder="name">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleFormControlInput1"
+                            <input type="password" name="password" placeholder="masukan password"  required class="form-control" id="exampleFormControlInput1"
                                 placeholder="password">
                         </div>
                         <h3 class="h6">Role</h3>
                         <select name="role" class="form-select" required>
+                            <option>Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
+                            <option value="spv"></option>
                         </select>
                         <button type="submit" class="btn btn-primary mt-4 mb-4">Submit</button>
                     </form>
@@ -61,9 +63,15 @@
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->role}}</td>
-                                    <td><a href="/tampilset/{{$row->id}}" class="btn btn-primary" data-bs-toggle="modal"
+                                    <td>
+                                        <a href="/tampilset/{{$row->id}}" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal{{$row->id}}">Edit</a>
-                                        <button type="button" class="btn btn-light">Hapus</button>
+                                            <a href="javascript:$('#formDelete-{{ $row->id }}').submit();" class="btn btn-default">Delete</a>
+
+                                        <form id="formDelete-{{ $row->id }}" action="deleteuser/{{ $row->id}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                        </form>
                                     </td>
                                 </tr>
                                 <!-- Modal -->
@@ -103,7 +111,6 @@
                                                     </div>
                                                     <h3 class="h6">Role</h3>
                                                     <select class="form-select" name="role">
-                                                        <option selected>{{$row->role}}</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="user">User</option>
                                                     </select>

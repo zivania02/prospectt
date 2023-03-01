@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\AddprospectController;
 use App\Http\Controllers\SalesController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\SalesController;
 Route::get('/', function(){
     return redirect()->route('login');
 });
+
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -62,7 +64,6 @@ Route::get('filter-data/{tglawal}/{tglakhir}', [PresensiController::class, 'tamp
 Route::get('pdf', [PresensiController::class, 'pdf'])->name('pdf');
 Route::get('expdf', [AddprospectController::class, 'expdf'])->name('expdf');
 
-
 // middleware
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     // add prospect
@@ -78,7 +79,6 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
 
 //menu
 Route::get('/menu', [ProfileController::class, 'menu'])->name('menu');
-Route::get('/roles', [ProfileController::class, 'roles'])->name('roles');
 // Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
 
 // sales
@@ -88,19 +88,23 @@ Route::post('/insertdata', [SalesController::class, 'insertdata'])->name('insert
 Route::get('/tampilsales/{id}', [SalesController::class, 'tampilsales'])->name('tampilsales');
 Route::get('/deletesales/{id}', [SalesController::class, 'delete'])->name('deletesales');
 Route::get('/detail/{id}', [SalesController::class, 'detail'])->name('detail');
+Route::delete('/deleteuser/{id}', [ProfileController::class, 'hapusdata'])->name('deleteuser');
 
 
 
 
 // settings page
-
 Route::get('/tambahset', [ProfileController::class, 'settings'])->name('settings');
 Route::post('/insertset', [ProfileController::class, 'insertset'])->name('insertset');
 Route::get('/tampilset/{id}', [ProfileController::class, 'tampilset'])->name('tampilset');
 Route::put('/updatedata/{id}', [ProfileController::class, 'updatedata'])->name('updatedata');
-
+// Route::delete('/hapusdata/{id}', [ProfileController::class, 'hapusdata'])->name('hapusdata');
 
 // Route::get('/tampilpros/{id}', [AddprospectController::class, 'tampilpros'])->name('tampilpros');
 // Route::post('/updatepros/{id}', [AddprospectController::class, 'updatepros'])->name('updatepros');
 // Route::get('/delete/{id}', [AddprospectController::class, 'delete'])->name('delete');
 
+// role
+Route::get('/role', [ProfileController::class, 'roles'])->name('roles');
+Route::get('/tambahrole', [ProfileController::class, 'roles'])->name('roles');
+Route::post('/insertrole', [ProfileController::class, 'insertrole'])->name('insertrole');
