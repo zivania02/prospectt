@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-table, td, th {  
+table, td, th {
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -43,7 +43,7 @@ h2{
                     <th scope="col">Phone</th>
                     <th scope="col">Potensial value</th>
                     <th scope="col">Remark</th>
-                   
+
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +53,7 @@ h2{
                 @foreach ($data as $row)
                 <tr>
                     <th scope="row">{{$no++}}</th>
+                    <td>{{$row->date}}</td>
                     <td>{{$row->firstname}} {{$row->lastname}}</td>
                     <td>{{$row->tgl_lahir}}</td>
                     <td>{{$row->email}}</td>
@@ -61,7 +62,7 @@ h2{
                     <td>{{$row->phone}}</td>
                     <td>{{$row->potenvalue}}</td>
                     <td>{{$row->remark}}</td>
-                  
+
                 </tr>
                 @endforeach
             </tbody>

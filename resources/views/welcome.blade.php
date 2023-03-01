@@ -43,13 +43,13 @@
                                                 <div
                                                     class="statistics-details d-flex align-items-center justify-content-between">
                                                     <div>
-                                                        <p class="statistics-title">Bounce Rate</p>
+                                                        <p class="statistics-title">Total Prospect</p>
                                                         <h3 class="rate-percentage">32.53%</h3>
                                                         <p class="text-danger d-flex"><i
                                                                 class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
                                                     </div>
                                                     <div>
-                                                        <p class="statistics-title">Page Views</p>
+                                                        <p class="statistics-title">Total Sales</p>
                                                         <h3 class="rate-percentage">7,682</h3>
                                                         <p class="text-success d-flex"><i
                                                                 class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
@@ -169,7 +169,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col-lg-8 d-flex flex-column">
                                                 <div class="row flex-grow">
                                                     <div class="col-12 grid-margin stretch-card">
@@ -986,7 +986,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

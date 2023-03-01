@@ -6,9 +6,9 @@
          <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-        
+
 <div class="col-11">
- 
+
             <form class="forms-sample ">
                 <div class="form-group col-3 mx-3">
                     <label for="exampleInputUsername1">Tanggal awal</label>
@@ -56,7 +56,7 @@
 
                         @foreach ($presensi as $item)
                         <tr>
-                          
+
                             <td>{{ $item->tgl }}</td>
                             <td>{{ $item->jamasuk }}</td>
                             <td>{{ $item->jamkeluar }}</td>

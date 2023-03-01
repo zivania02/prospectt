@@ -2,9 +2,13 @@
 <html>
 <head>
 <style>
-table, td, th {  
+table, td, th {
   border: 1px solid #ddd;
   text-align: left;
+}
+th{
+     background-color: rgb(64, 64, 193);
+     color: white;
 }
 
 table {
@@ -45,7 +49,7 @@ h2{
 
                         @foreach ($presensi as $item)
                         <tr>
-                           
+
                             <td>{{ $item->tgl }}</td>
                             <td>{{ $item->jamasuk }}</td>
                             <td>{{ $item->jamkeluar }}</td>
